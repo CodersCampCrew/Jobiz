@@ -1,8 +1,7 @@
 import fetch from "node-fetch";
-import config from "config"
-class QuizapiWrapper {
+export class QuizapiWrapper {
     constructor(category) {
-        this.apiKey = config.get('apiKey')
+        this.apiKey = "EAco9tkerMBqitin1irWhCDipOxYHxJ5A5xe1nqQ"
         this.data;
         this.checkCategory(category) 
         this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=${this.category}`;
