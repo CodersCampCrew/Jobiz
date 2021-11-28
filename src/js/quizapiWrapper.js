@@ -1,23 +1,12 @@
 import fetch from "node-fetch";
 import config from "config"
-import XMLHttpRequest from "xhr2";
 class QuizapiWrapper {
-    constructor(category, difficulty) {
+    constructor(category) {
         this.apiKey = config.get('apiKey')
         this.data;
         this.checkCategory(category) 
-        this.determineDifficulty(difficulty)
-        //this.data = this.getData();
+        this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=${this.category}`;
     };
-
-    determineDifficulty(difficulty) {
-        this.checkDifficulty(difficulty)
-        if (this.difficulty != null) {
-            this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=${this.category}&difficulty=${this.difficulty}`;
-        } else {
-            this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=${this.category}`;
-        }
-    }
 
     async getData() {
         
@@ -28,6 +17,7 @@ class QuizapiWrapper {
             .catch(err => console.error('Error:', err));
             return data;
         }
+        
         this.data = await callApi(this.url);
         var allQuestions = [];
         for (let i = 0; i < this.data.length; i++) {
@@ -73,18 +63,6 @@ class QuizapiWrapper {
         }
     }
 
-    checkDifficulty(difficulty) {
-        if (difficulty != undefined) {
-            const difficulties = ['easy', 'medium', 'hard']
-            if( !difficulties.includes(difficulty) ) {
-                throw new Error('Category out of range. If you do not want to use difficulty setting do not pass it to argument')
-            } else {
-                this.difficulty = difficulty;
-            }
-        } else {
-            this.difficulty = null;
-        }
-    }
 
 }
 
