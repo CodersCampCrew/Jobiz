@@ -1,46 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-
-* {
-    box-sizing: border-box;
-}
+@import url(../css/reset.css);
+@import url(../css/colors.css);
 
 body {
-    background-image: url('/src/assets/img/background.jpg');
+    background-image: url("../img/background.jpg");
     background-size: cover;
-    color: white;
+    color: #FFFFFF;
     margin: 0;
 }
 
-container {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Space Mono', monospace;
-    padding: 20px;
-    height: 100vh;
+    padding: 2rem;
+    min-height: 100vh;
 }
 
 .title {
-    font-size: 144px;
-    color: #45A29E;
+    font-size: 14.4em;
+    color: var(--primary);
     text-transform: uppercase; 
     margin: 0;  
     padding-bottom: 0;
-    line-height: 140px;
+    line-height: 14rem;
+    text-align: center;
 }
 
 .subtitle {
-    font-size: 30px;
+    font-size: 3em;
     margin-top: 0;
     padding-top: 0;
+    text-align: center;
 }
 
 .text-box {
-    padding: 20px;
-    margin-bottom: 40px;
+    font-size: 2em;
+    padding: 2rem;
+    margin: 4rem 2rem 4rem 2rem;
     text-align: justify;
-    background-color: rgba(88, 88, 88, 0.7);
+    background-color: var(--bg-box);
 }
 
 @media screen and (min-width: 600px) {
@@ -53,17 +53,17 @@ container {
     border: none;
     color: #000;
     font-weight: bold;
-    background-color: #66FCF1;
+    background-color: var(--primary);
     text-transform: uppercase;
-    padding: 15px 25px;
+    padding: 1.5rem 2.5rem;
     text-align: center;
     text-decoration: none;
-    font-size: 20px;
-    border-radius: 8px;
+    font-size: 2em;
+    border-radius: 0.8rem;
 }
 
 .btn:hover {
     transition-duration: 0.4s;
-    background-color: #44DAD0;
+    background-color: var(--primary-active);
 }
 
