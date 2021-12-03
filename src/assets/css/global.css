@@ -41,7 +41,7 @@ section {
 }
 
 .text-box {
-    font-size: 2em;
+    font-size: 2.5em;
     padding: 2rem;
     margin: 4rem 2rem 4rem 2rem;
     text-align: justify;
@@ -50,7 +50,7 @@ section {
 
 @media screen and (min-width: 600px) {
     .text-box--fixed-width {
-        width: 70%;
+        width: 80%;
     }
 }
 
@@ -61,11 +61,13 @@ section {
     background-color: var(--primary);
     text-transform: uppercase;
     padding: 1.5rem 2.5rem;
+    margin: 3rem;
     text-align: center;
     text-decoration: none;
     font-size: 2em;
     border-radius: 0.8rem;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -203,3 +205,81 @@ section {
     top: 50%;
     font-size: 3rem;
 }
+
+
+/* PATH */
+
+.choice-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    width: 80%;
+}
+
+.container__title {
+    font-size: 5rem;
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.choice {
+    width: 50%;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s;
+}
+
+.choice:hover {
+    transform: scale(1.2);
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.choice__img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 70%;
+    width: 27rem;
+    max-height: 27rem;
+
+}
+
+.choice__title {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+    .choice-container {
+        flex-direction: column;
+    }
+}
+
+
+/* TIER */
+
+.choice-container--tier {
+    flex-wrap: wrap;
+}
+
+
+/* NICKNAME */
+
+input {
+    width: 40rem;
+    border: 0.5rem solid var(--primary);
+    color: #000;
+    font-weight: bold;
+    padding: 1.5rem 2.5rem;
+    margin: 3rem;
+    font-size: 2em;
+    border-radius: 0.8rem;
+}
+
