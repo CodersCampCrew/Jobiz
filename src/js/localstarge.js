@@ -1,18 +1,19 @@
-//TESTING LOCALSTORAGE WHETHER IT WORKS OR EXIST
+//TESTING LOCALSTORAGE WHETHER IT WORKS OR EXIST - saving the outcome in local storage????
 function localStorageTest() {
-    const test = "test" + new.Date().valueOf();
+    const test = "test" + String(Math.random());
     try {
-        localStorageTest.setItem(test,test);
+        localStorage.setItem("test",test);
         localStorage.removeItem(test);
         return true;
     } 
     catch(e) {
+        console.log(e);
         return false;
     }
 }
 
 //OUTLINE OF AN OBJECT PLAYER:
-var player {               //data collected from the user
+const player = {               //data collected from the user
 
     choosePath:"",
     selectTier:"",
@@ -25,7 +26,7 @@ var player {               //data collected from the user
 }
 
 //OUTLINE OF AN OBJECT QUIZ:
-const quiz {               //object in which we will keep the question - from Fetch API
+const quiz = {               //object in which we will keep the question - from Fetch API
     
     currentQuestion:"",
     currentAnswer:"",
@@ -34,15 +35,39 @@ const quiz {               //object in which we will keep the question - from Fe
     
 }
 
+//SAVING TO LOCALSTORAGE - universal function
 
-//SAVING Players name to LOCALSTORAGE
-function savePlayersName() {
-    var myContent = document.getElementById("nameTextarea").value;
-    localStorage.setItem("myContent", myContent);
+function saveToLocalStorage(resource, positionName) {
+
+    const resourceToSave = JSON.parse(resource);
+    localStorage.setItem(positionName, resourceToSave);
+
+} 
+
+function loadFromLocalStorage(positionName) {
+
+    const resourceToLoad = JSON.stringify(positionName);
+    return resourceToLoad;
+
 }
 
-//GETTING Players name from LOCALSTORAGE
-function getPlayersName() {
-    var myContent = localStorage.getItem("myContent")
-document.getElementById("nameTextarea").value = myContent;
-}
+console.log(localStorageTest());
+
+
+
+
+
+
+
+
+// //SAVING Players name to LOCALSTORAGE
+// function savePlayersName() {
+//     var myContent = document.getElementById("nameTextarea").value;
+//     localStorage.setItem("myContent", myContent);
+// }
+
+// //GETTING Players name from LOCALSTORAGE
+// function getPlayersName() {
+//     var myContent = localStorage.getItem("myContent")
+// document.getElementById("nameTextarea").value = myContent;
+// }
