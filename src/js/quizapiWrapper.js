@@ -1,75 +1,71 @@
-import fetch from "node-fetch";
-export class QuizapiWrapper {
-    constructor(category) {
+class QuizapiWrapper {
+    constructor(tags) {
         this.apiKey = "EAco9tkerMBqitin1irWhCDipOxYHxJ5A5xe1nqQ";
-        this.data;
-        this.checkCategory(category);
-        this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=${this.category}`;
+        this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=`;
+
+        this.data = null;
+        this.frontendTags = null;
+        this.backendTags = null;
+
+        this.tags = import("./tags").then((module) => {
+            this.frontendTags = module.frontend;
+            this.backendTags = module.backend;
+            return this.chooseTags(tags);
+        });
     }
-
+    //git commit -m 'fixed pr issues, refactored getData(), added importing tags from external file'
     async getData() {
-        const callApi = (url) => {
-            const data = fetch(url)
+        const callApi = (url) =>
+            fetch(url)
                 .then((res) => res.json())
-                .then((json) => json)
                 .catch((err) => console.error("Error:", err));
-            return data;
-        };
 
-        this.data = await callApi(this.url);
+        let tagsLength = await (await this.tags).length;
         var allQuestions = [];
-        for (let i = 0; i < this.data.length; i++) {
-            var question = this.data[i]["question"];
-            var answers = this.data[i]["answers"];
-            var parsedAnswers = [];
 
-            for (var key in answers) {
-                if (answers[key] != null) {
-                    parsedAnswers.push(answers[key]);
-                }
-            }
+        for (let i = 0; i < tagsLength; i++) {
+            let _parsed_url = this.url + (await (await this.tags)[i]);
+            //console.log(_parsed_url);
+            this.data = await callApi(_parsed_url);
 
-            var correct_answers = this.data[i]["correct_answers"];
-            for (var key in correct_answers) {
-                if (correct_answers[key] == "true") {
-                    let answer_key = key.substring(0, key.search("_correct"));
-                    var correct_answer = answers[answer_key];
+            for (let i = 0; i < this.data.length; i++) {
+                var question = this.data[i]["question"];
+                var answers = this.data[i]["answers"];
+                var parsedAnswers = [];
+
+                for (var key in answers) {
+                    if (answers[key] != null) {
+                        parsedAnswers.push(answers[key]);
+                    }
                 }
+
+                var correct_answers = this.data[i]["correct_answers"];
+                for (var key in correct_answers) {
+                    if (correct_answers[key] == "true") {
+                        let answer_key = key.substring(
+                            0,
+                            key.search("_correct")
+                        );
+                        var correct_answer = answers[answer_key];
+                    }
+                }
+                allQuestions.push({
+                    question: question,
+                    answers: parsedAnswers,
+                    correct_answer: correct_answer,
+                });
             }
-            allQuestions.push({
-                question: question,
-                answers: parsedAnswers,
-                correct_answer: correct_answer,
-            });
         }
-        console.log(allQuestions);
         return allQuestions;
     }
 
-    checkCategory(category) {
-        if (category == undefined) {
-            console.log("category is undefined");
-            return false;
-        }
-        category = category.toLowerCase();
-        const categories = [
-            "linux",
-            "devops",
-            "networking",
-            "php",
-            "javascript",
-            "cloud",
-            "docker",
-            "kubernetes",
-            "python",
-        ];
-        if (!categories.includes(category)) {
-            throw new Error("Category out of range");
+    chooseTags(tags) {
+        if (tags === "frontend") {
+            return this.frontendTags;
+        } else if (tags === "backend") {
+            return this.backendTags;
         } else {
-            this.category = category;
+            console.error("Check if tags are correct");
         }
     }
 }
-
-let quizapiWrapper = new QuizapiWrapper("PHP");
-console.log(quizapiWrapper.getData());
