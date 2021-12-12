@@ -64,6 +64,9 @@
     background-color: var(--primary-active);
 }
 
+.btn-fail {
+    background-color: #515052d0; 
+}
 
 /* HEADER */
 

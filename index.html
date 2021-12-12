@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobiz</title>
-
     <link rel="stylesheet" href="/src/assets/css/global.css">
+    <script async type="module" src="src/js/localstorage.js"></script> <!-- async so the localstorageTest will have priority-->
+    <!-- <script defer type="module" src="src/js/main.js"></script>        defer so the main.js will load symultanously -->
 </head>
 
 <body>
@@ -18,18 +19,11 @@
             Do you want to be a programmer? Or maybe you have some experience and want to find a better job? Take a quiz to test your skills and find your dream job! At first, you have to choose your path. Then answer some questions to confirm your knowledge level and see the best job offers for you.
             </p>    
         </div> 
-        <button class="btn">Start</button>
-    </main>
+        <a href="./src/pages/path.html">
+            <button class="btn">Start</button>
+        </a>
+</main>
+
 </body>
-
-
-
-
-
-
-
-<script src="src/js/main.js"></script>
-<script src="src/js/localstarge.js"></script>
-<script src="src/js/quzioWrapper.js"></script>
 
 </html>
