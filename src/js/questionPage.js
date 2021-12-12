@@ -27,10 +27,10 @@ class ProgressBar {
 
 	startBar() {
 		this.element.innerHTML = this.secondsToCount + "s";
-		var x = setInterval((date = this.countDownDate, elem = this.element) => {
-			var now = new Date().getTime();
-			var distance = date - now;
-			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		const x = setInterval((date = this.countDownDate, elem = this.element) => {
+			let now = new Date().getTime();
+			let distance = date - now;
+			let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 			elem.innerHTML = seconds + "s ";
 			if (distance < 0) {
 				clearInterval(x);
