@@ -13,32 +13,35 @@ class ProgressBar {
 	}
 
 	createProgressBar() {
-		let e = document.createElement("div");
-		e.className = "round-time-bar";
-		e.id = "progress";
-		e.innerHTML =
+		let progressBarElem = document.createElement("div");
+		progressBarElem.className = "round-time-bar";
+		progressBarElem.id = "progress";
+		progressBarElem.innerHTML =
 			"<div></div><p class='progress-bar-text' id='progress-bar-text'></p>";
 
 		let healthBar = document.querySelector(".health");
 		let main = document.querySelector(".container");
-		main.insertBefore(e, healthBar);
+		main.insertBefore(progressBarElem, healthBar);
 		document.documentElement.style.setProperty("--duration", 15);
 	}
 
 	startBar() {
+		const interval = setInterval(
+			(date = this.countDownDate, elem = this.element) => {
+				let now = new Date().getTime();
+				let distance = date - now;
+				let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				elem.innerHTML = seconds + "s ";
+				if (distance < 0) {
+					clearInterval(interval);
+					elem.innerHTML = "You've lost heart";
+					this.status = false;
+					//TIMES UP
+				}
+			},
+			1000
+		);
 		this.element.innerHTML = this.secondsToCount + "s";
-		const x = setInterval((date = this.countDownDate, elem = this.element) => {
-			let now = new Date().getTime();
-			let distance = date - now;
-			let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			elem.innerHTML = seconds + "s ";
-			if (distance < 0) {
-				clearInterval(x);
-				elem.innerHTML = "You've lost heart";
-				this.status = false;
-				//TIMES UP
-			}
-		}, 1000);
 	}
 }
 
