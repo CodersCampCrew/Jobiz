@@ -1,3 +1,16 @@
+/* 
+    HOW TO USE:
+    <script src="./src/js/quizapiWrapper.js"></script>
+    <script>
+        let quizapiWrapper = new QuizapiWrapper("frontend");
+        async function getData() {
+            let quizData = await quizapiWrapper.getData();
+            console.log(quizData);
+        }
+
+        getData();
+    </script>
+*/
 class QuizapiWrapper {
     constructor(tags) {
         this.apiKey = "EAco9tkerMBqitin1irWhCDipOxYHxJ5A5xe1nqQ";
@@ -13,7 +26,7 @@ class QuizapiWrapper {
             return this.chooseTags(tags);
         });
     }
-    //git commit -m 'fixed pr issues, refactored getData(), added importing tags from external file'
+
     async getData() {
         const callApi = (url) =>
             fetch(url)
@@ -25,7 +38,6 @@ class QuizapiWrapper {
 
         for (let i = 0; i < tagsLength; i++) {
             let _parsed_url = this.url + (await (await this.tags)[i]);
-            //console.log(_parsed_url);
             this.data = await callApi(_parsed_url);
 
             for (let i = 0; i < this.data.length; i++) {
