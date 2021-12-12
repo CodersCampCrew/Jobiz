@@ -1,5 +1,5 @@
 class ProgressBar {
-	constructor(seconds, element) {
+	constructor(seconds) {
 		this.secondsToCount = seconds;
 		this.countDownDate = new Date();
 		this.countDownDate.setSeconds(
@@ -44,7 +44,6 @@ class ProgressBar {
 
 function addHoverToAnswerButtons() {
 	let answerButtons = document.getElementsByClassName("answer__button");
-	console.log(answerButtons);
 	for (let i = 0; i < answerButtons.length; i++) {
 		answerButtons[i].classList.add("answer__button-hover");
 	}
@@ -62,6 +61,6 @@ window.onload = function () {
 		.addEventListener("click", () => {
 			enableQuestions();
 			addHoverToAnswerButtons();
-			new ProgressBar(15, document.getElementById("progress-bar-text"));
+			new ProgressBar(15);
 		});
 };
