@@ -1,3 +1,24 @@
+// test array
+const questions = [
+	{
+		question:"2+2",
+		answer1:"4",
+		answer2:"3",
+		answer3:"2"
+	},
+	{
+		question:"2+1",
+		answer1:"4",
+		answer2:"3",
+		answer3:"2"
+	},
+]
+
+let questionCounter=0;
+let avaibleQuestions=[];
+let currentQuestion={};
+const answers = Array.from(document.getElementsByClassName("answer__button"));
+
 class ProgressBar {
 	constructor(seconds) {
 		this.secondsToCount = seconds;
@@ -54,9 +75,41 @@ function addHoverToAnswerButtons() {
 function enableQuestions() {
 	document.getElementsByClassName("answer-container")[0].style.filter =
 		"blur(0px)";
-	let btn = document.getElementsByClassName("button-question-read")[0];
-	btn.parentElement.removeChild(btn);
+	let btn = document.getElementsByClassName("button-question-read")[0].style.visibility = "hidden";
 }
+
+function disableQuestions() {
+	document.getElementsByClassName("answer-container")[0].style.filter = "blur(5px)";
+	let btn = document.getElementsByClassName("button-question-read")[0].style.visibility = "visible";
+}
+
+function startQuiz(){
+questionCounter=0;
+avaibleQuestions=[...questions];
+console.log(avaibleQuestions);
+newQuestion();
+}
+
+function newQuestion(){
+questionCounter++;
+const questionIndex = Math.floor(Math.random() * avaibleQuestions.length);
+currentQuestion = avaibleQuestions[questionIndex];
+question.innerHTML = currentQuestion.question;
+
+answers.forEach(answer =>{
+	const number= answer.dataset['number'];
+	answer.innerHTML = currentQuestion['answer' + number];
+})
+
+avaibleQuestions.splice(questionIndex, 1);
+
+}
+answers.forEach(answer => {
+answer.addEventListener("click", e=>{
+	newQuestion();
+	disableQuestions()
+})
+})
 
 window.onload = function () {
 	document
@@ -67,3 +120,6 @@ window.onload = function () {
 			new ProgressBar(15);
 		});
 };
+
+
+startQuiz(); //Function Test
