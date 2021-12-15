@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobiz</title>
-    <script src="https://kit.fontawesome.com/83ee246de5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/src/assets/css/global.css">
-</head>
-<body>
-    <main class="container">
-        <section class="progress">
-            <progress value="30" max="100" class="progress__bar"></progress>
-        </section>
-        <section class="health">
-            <div>
-                <i class="fas fa-heart icon"></i>
-                <i class="fas fa-heart icon"></i>
-                <i class="fas fa-heart icon icon--inactive"></i>
-            </div>
-            <div>
-                <button class="button button-skip">Skip</button>
-            </div>
-        </section>
-        <section class="question-container">
-            <div class="question">
-                <p class="question__text">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ducimus hic ab accusantium repellat, odio vero corrupti non, repudiandae autem maiores aspernatur exercitationem nobis quae quas. Sed, consectetur similique? Voluptates.
-                </p>    
-            </div> 
-        </section>
-        <section class="answer-container">
-            <div class="answer">
-                <button class="answer__button">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias veniam eaque ullam ratione perspiciatis id labore necessitatibus. Et, corporis! Non culpa iusto possimus et incidunt quo pariatur, fugit ad unde!
-                </button>
-            </div>
-            <div class="answer">
-                <button class="answer__button">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ipsam repellat velit consequatur fuga aliquid, eum ullam enim, quis voluptate nesciunt explicabo similique. Fuga deserunt officiis eveniet fugiat animi quae?
-                </button>
-            </div>
-            <div class="answer">
-                <button class="answer__button answer__button--incorrect">
-                    TEST
-                </button>
-            </div>
-            <button class="button button-question-read">I have read!</button>
-        </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jobiz</title>
+		<script
+			src="https://kit.fontawesome.com/83ee246de5.js"
+			crossorigin="anonymous"
+		></script>
 
-    </main>
-
-
-    <!-- 
-        TEST - listing out object player from localStorage
-        <script defer type="module">
-        // import {saveToLocalStorage, loadFromLocalStorage} from "../js/localstorage.js"
-        
-        // const player = {
-        // choosePath: loadFromLocalStorage("choosePath"),
-        // selectTier: loadFromLocalStorage("selectTier"),
-        // enterName: loadFromLocalStorage("enterName"),
-        // };
-        // console.log(player);
-      
-    </script> -->
-
-
-
-</body>
+		<link rel="stylesheet" href="/src/assets/css/global.css" />
+		<link rel="stylesheet" href="/src/assets/css/progressBar.css" />
+		<link rel="stylesheet" href="/src/assets/css/questionPage.css" />
+	</head>
+	<body>
+		<main class="container">
+			<section class="health">
+				<div>
+					<i class="fas fa-heart icon"></i>
+					<i class="fas fa-heart icon"></i>
+					<i class="fas fa-heart icon icon--inactive"></i>
+				</div>
+				<div>
+					<button class="button button-skip">Skip</button>
+				</div>
+			</section>
+			<section class="question-container">
+				<div class="question">
+					<p class="question__text">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
+						ducimus hic ab accusantium repellat, odio vero corrupti non,
+						repudiandae autem maiores aspernatur exercitationem nobis quae quas.
+						Sed, consectetur similique? Voluptates.
+					</p>
+				</div>
+			</section>
+			<section class="answer-container">
+				<div class="answer">
+					<button class="answer__button">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+						veniam eaque ullam ratione perspiciatis id labore necessitatibus.
+						Et, corporis! Non culpa iusto possimus et incidunt quo pariatur,
+						fugit ad unde!
+					</button>
+				</div>
+				<div class="answer">
+					<button class="answer__button">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+						ipsam repellat velit consequatur fuga aliquid, eum ullam enim, quis
+						voluptate nesciunt explicabo similique. Fuga deserunt officiis
+						eveniet fugiat animi quae?
+					</button>
+				</div>
+				<div class="answer">
+					<button class="answer__button answer__button--incorrect">TEST</button>
+				</div>
+			</section>
+			<button class="button button-question-read" id="button-question-read">
+				I have read!
+			</button>
+		</main>
+		<progress class="question-count" value="5" max="20"></progress>
+		<script src="../js/questionPage.js"></script>
+	</body>
 </html>

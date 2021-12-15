@@ -20,5 +20,6 @@
   "homepage": "https://github.com/CodersCampCrew/Jobiz#readme",
   "devDependencies": {
     "snowpack": "^3.8.8"
-  }
+  },
+  "type": "module"
 }
