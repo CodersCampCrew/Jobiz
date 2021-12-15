@@ -164,11 +164,21 @@
 
 .button:hover {
 	box-shadow: inset -0.1em -0.5em 1em rgba(0, 0, 0, 0.25);
+	cursor: pointer;
 }
 
 .button-skip {
-	color: black;
+	color: var(--font-color);
 	font-size: 2rem;
+}
+
+.button-skip--disabled{
+	background-color: var(--bg-question-box--disabled);
+	color: var(--black-color);
+}
+
+.button-skip--disabled:hover{
+	cursor: not-allowed;
 }
 
 .button-question-read {
