@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobiz</title>
     
-    <link rel="stylesheet" href="/src/assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <script defer type="module" type="text/javascript" src="../js/path.js"></script>
 </head>
 <body>
     <main class="container">
@@ -27,15 +28,7 @@
 
     </main>
 
-    <script defer type="module">
-        import {saveToLocalStorage} from "../js/localstorage.js"
-        const frontEnd = document.querySelector("#choice1");
-      frontEnd.addEventListener("click", function () {
-        saveToLocalStorage("frontEnd", "choosePath");
-      });
-        const backEnd = document.querySelector('#choice2');
-        backEnd.addEventListener('click', function () { saveToLocalStorage("backEnd","choosePath")});
-    </script>
+    
 
 </body>
 </html>

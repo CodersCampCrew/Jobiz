@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobiz</title>
-    
-    <link rel="stylesheet" href="/src/assets/css/global.css">
+    <script defer type="module" src="../js/tier.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css">
 </head>
 <body>
     <main class="container">
@@ -47,25 +47,6 @@
         </nav>
 
     </main>
-    <script defer type="module">
-        import {saveToLocalStorage} from "../js/localstorage.js"
-
-        const intern = document.querySelector("#choice1");
-        intern.addEventListener("click", function () {
-        saveToLocalStorage("Intern", "selectTier");});
-        
-        const junior = document.querySelector('#choice2');
-        junior.addEventListener('click', function () { 
-        saveToLocalStorage("Junior","selectTier")});
-
-        const regular = document.querySelector('#choice3');
-        regular.addEventListener('click', function () { 
-        saveToLocalStorage("Regular","selectTier")});
-
-        const senior = document.querySelector('#choice4');
-        senior.addEventListener('click', function () { 
-        saveToLocalStorage("Senior","selectTier")});
-
-    </script>
+    
 </body>
 </html>
