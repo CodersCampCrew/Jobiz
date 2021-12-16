@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobiz</title>
-
-    <link rel="stylesheet" href="/src/assets/css/global.css">
+    <script defer type="module" src="../js/nickname.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css">
 </head>
 <body>
     <main class="container">
@@ -15,12 +15,6 @@
         <a href="question.html" style="text-decoration: none;color:inherit">
         <button class="btn">Enter!</button></a>
     </main>
-    <script defer type="module">
-        import {saveToLocalStorage, loadFromLocalStorage} from "../js/localstorage.js"
-
-        const button = document.querySelector("button");
-        button.addEventListener("click", function () {
-        saveToLocalStorage(document.querySelector('input').value, "enterName");});
-    </script>
+    
 </body>
 </html>
