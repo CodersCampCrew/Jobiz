@@ -1,23 +1,35 @@
 // test array
 const questions = [
 	{
-		question:"2+2",
-		answer1:"4",
-		answer2:"3",
-		answer3:"2"
+		question: "Is JavaScript case-sensitive?",
+		answers: [
+			"True",
+			"False",
+			"True"
+		],
+		correct_answer: "True"
 	},
 	{
-		question:"2+1",
-		answer1:"4",
-		answer2:"3",
-		answer3:"2"
+		question: "Is JavaScript case-sensitive?(1)",
+		answers: [
+			"True(1)",
+			"False(1)"
+		],
+		correct_answer: "True"
+	},
+	{
+		question: "Is JavaScript case-sensitive?(2)",
+		answers: [
+			"True(2)",
+			"False(2)"
+		],
+		correct_answer: "True"
 	},
 ]
-
 let questionCounter=0;
-let avaibleQuestions=[];
+let availableQuestions=[]; 
 let currentQuestion={};
-const answers = Array.from(document.getElementsByClassName("answer__button"));
+const answerElements = Array.from(document.getElementsByClassName("answer__button"));
 
 class ProgressBar {
 	constructor(seconds) {
@@ -75,7 +87,7 @@ function addHoverToAnswerButtons() {
 function enableQuestions() {
 	document.getElementsByClassName("answer-container")[0].style.filter =
 		"blur(0px)";
-	let btn = document.getElementsByClassName("button-question-read")[0].style.visibility = "hidden";
+	document.getElementsByClassName("button-question-read")[0].style.visibility = "hidden";
 }
 
 function disableQuestions() {
@@ -85,26 +97,26 @@ function disableQuestions() {
 
 function startQuiz(){
 questionCounter=0;
-avaibleQuestions=[...questions];
-console.log(avaibleQuestions);
+availableQuestions=[...questions];
+console.log(availableQuestions);
 newQuestion();
 }
 
 function newQuestion(){
 questionCounter++;
-const questionIndex = Math.floor(Math.random() * avaibleQuestions.length);
-currentQuestion = avaibleQuestions[questionIndex];
+const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+currentQuestion = availableQuestions[questionIndex];
 question.innerHTML = currentQuestion.question;
 
-answers.forEach(answer =>{
+answerElements.forEach(answer =>{
 	const number= answer.dataset['number'];
-	answer.innerHTML = currentQuestion['answer' + number];
+	answer.innerHTML = currentQuestion.answers[number - 1];
 })
 
-avaibleQuestions.splice(questionIndex, 1);
+availableQuestions.splice(questionIndex, 1);
 
 }
-answers.forEach(answer => {
+answerElements.forEach(answer => {
 answer.addEventListener("click", e=>{
 	newQuestion();
 	disableQuestions()
