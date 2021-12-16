@@ -1,3 +1,36 @@
+// test array
+const questions = [
+	{
+		question: "Is JavaScript case-sensitive?",
+		answers: [
+			"True",
+			"False",
+			"True"
+		],
+		correct_answer: "True"
+	},
+	{
+		question: "Is JavaScript case-sensitive?(1)",
+		answers: [
+			"True(1)",
+			"False(1)"
+		],
+		correct_answer: "True"
+	},
+	{
+		question: "Is JavaScript case-sensitive?(2)",
+		answers: [
+			"True(2)",
+			"False(2)"
+		],
+		correct_answer: "True"
+	},
+]
+let questionCounter=0;
+let availableQuestions=[]; 
+let currentQuestion={};
+const answerElements = Array.from(document.getElementsByClassName("answer__button"));
+
 class ProgressBar {
 	constructor(seconds) {
 		this.secondsToCount = seconds;
@@ -54,9 +87,41 @@ function addHoverToAnswerButtons() {
 function enableQuestions() {
 	document.getElementsByClassName("answer-container")[0].style.filter =
 		"blur(0px)";
-	let btn = document.getElementsByClassName("button-question-read")[0];
-	btn.parentElement.removeChild(btn);
+	document.getElementsByClassName("button-question-read")[0].style.visibility = "hidden";
 }
+
+function disableQuestions() {
+	document.getElementsByClassName("answer-container")[0].style.filter = "blur(5px)";
+	let btn = document.getElementsByClassName("button-question-read")[0].style.visibility = "visible";
+}
+
+function startQuiz(){
+questionCounter=0;
+availableQuestions=[...questions];
+console.log(availableQuestions);
+newQuestion();
+}
+
+function newQuestion(){
+questionCounter++;
+const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+currentQuestion = availableQuestions[questionIndex];
+question.innerHTML = currentQuestion.question;
+
+answerElements.forEach(answer =>{
+	const number= answer.dataset['number'];
+	answer.innerHTML = currentQuestion.answers[number - 1];
+})
+
+availableQuestions.splice(questionIndex, 1);
+
+}
+answerElements.forEach(answer => {
+answer.addEventListener("click", e=>{
+	newQuestion();
+	disableQuestions()
+})
+})
 
 window.onload = function () {
 	document
@@ -67,3 +132,6 @@ window.onload = function () {
 			new ProgressBar(15);
 		});
 };
+
+
+startQuiz(); //Function Test
