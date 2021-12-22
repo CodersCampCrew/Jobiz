@@ -57,7 +57,7 @@ const player = {
     name:"",
     skipUsed: false, 
     score: 0,        
-    lives: 3,        r
+    lives: 3,
     };
 saveToLocalStorage(player,"player");
 }
