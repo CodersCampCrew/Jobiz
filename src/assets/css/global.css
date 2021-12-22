@@ -63,6 +63,22 @@
 	background-color: var(--primary-active);
 }
 
+.btn-fail {
+    border: none;
+    color: #000;
+    font-weight: bold;
+    background-color: #515052d0; 
+    text-transform: uppercase;
+    padding: 1.5rem 2.5rem;
+    margin: 3rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2em;
+    border-radius: 0.8rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
 /* HEADER */
 
 .health {

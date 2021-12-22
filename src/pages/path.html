@@ -5,25 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobiz</title>
-
-    <link rel="stylesheet" href="/src/assets/css/global.css">
+    
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <script defer type="module" type="text/javascript" src="../js/path.js"></script>
 </head>
 <body>
     <main class="container">
         <h2 class="container__title">Choose your path:</h2>
 
         <nav class="choice-container">
-           <div class="choice">
-                <img class="choice__img" src="../assets/img/designer.png">
-                <h4 class="choice__title">Front-end</h4>
-           </div>    
+           <div class="choice" id="choice1">
+            <a href="tier.html" style="text-decoration: none;color:inherit">
+            <img class="choice__img" src="../assets/img/designer.png">
+            <h4 class="choice__title">Front-end</h4></a>
+           </div>   
           
-           <div class="choice">
-                <img class="choice__img" src="../assets/img/programmer.png">
-                <h4 class="choice__title">Back-end</h4>
+           <div class="choice" id="choice2">
+            <a href="tier.html" style="text-decoration: none;color:inherit"><img class="choice__img" src="../assets/img/programmer.png">
+            <h4 class="choice__title">Back-end</h4></a>
            </div>
         </nav>
 
     </main>
+
+    
+
 </body>
 </html>
