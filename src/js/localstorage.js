@@ -1,10 +1,8 @@
-//TESTING LOCALSTORAGE WHETHER IT WORKS OR EXIST 
-export function localStorageTest() {                 //to avoid name collisions
+export const localStorageTest = function () {               
     
     try {
         localStorage.setItem("test","test");
         localStorage.removeItem("test");
-        console.log('Local Storage Fine')
         return true;
     } 
     catch(e) {
@@ -12,8 +10,8 @@ export function localStorageTest() {                 //to avoid name collisions
     }
 }
 
-//LOCKING THE START BUTTON IF LOCAL STORAGE DOESNT WOKR
-export const lockStart = () => {
+
+export const lockStart = function () {
     if (localStorageTest()) {
       return;
     } 
@@ -26,25 +24,20 @@ export const lockStart = () => {
     }
   };
 
-//SAVING TO AND LOADING FROM LOCALSTORAGE - universal function
-
-export function saveToLocalStorage(resource, positionName) {
+export const saveToLocalStorage = function(resource, positionName) {
 
     const resourceToSave = JSON.stringify(resource);
     localStorage.setItem(positionName, resourceToSave);
 
 } 
 
-export function loadFromLocalStorage(positionName) {
+export const loadFromLocalStorage = function(positionName) {
 
     const resource = localStorage.getItem(positionName);
     const resourceToLoad = JSON.parse(resource);
     return resourceToLoad;
 }
 
-//MAIN OBJECTS , GETTERS AND SETTERS METHODS
-
-//============================================================
 export const setGame = function () {
 const game = {
     questions: [],
@@ -55,45 +48,40 @@ const game = {
 saveToLocalStorage(game,"game");
 }
 
-export const getGame = () => {
+export const getGame = function () {
     return loadFromLocalStorage("game");
 };
 
-//============================================================
 export const setPlayer = function () {
 const player = {
     name:"",
-    skipUsed: false, // useSkip przestawia na true
-    score: 0,        // increase by 1 after correct answer
-    lives: 3,        // decrease by 1 after wrong answer
+    skipUsed: false, 
+    score: 0,        
+    lives: 3,        r
     };
 saveToLocalStorage(player,"player");
 }
 
-export const getPlayer = () => {
+export const getPlayer = function () {
     return loadFromLocalStorage("player");
 };
 
-//============================================================
-
-export const setScoreboard = () => {
+export const setScoreboard = function () {
     const scoreboard = [{name: '', score: 0}];
 
 saveToLocalStorage(scoreboard, "scoreboard");
 }
 
-const getScoreboard = () => {
+const getScoreboard = function () {
     return loadFromLocalStorage("scoreboard");
 };
 
-//API PARTICULAR FUNCTIONS
-
-const setQuestions = function (...ques){ //ques == questions, could be any type
+const setQuestions = function (gameQuestions){ 
     const game = getGame();
-    localStorage.removeItem("game"); // to prevent bugs
-    game.questions = ques;
+    localStorage.removeItem("game"); 
+    game.questions = gameQuestions;
     saveToLocalStorage(game, "game");
-    console.log(ques);
+    console.log(gameQuestions);
 };
 
 
@@ -146,10 +134,10 @@ const removeLife = function () {
     saveToLocalStorage(player, "player");
 };
 
-const addScore = function (n, s) { //n - string, player name, s - number, score
+const addScore = function (nameOfPlayer, scoreOfPlayer) { 
     const objToPush = {
-        name: n,
-        score: s,
+        name: nameOfPlayer,
+        score: scoreOfPlayer,
     };
     const scoreboard = getScoreboard();
     localStorage.removeItem("scoreboard");
@@ -158,30 +146,21 @@ const addScore = function (n, s) { //n - string, player name, s - number, score
 
 };
 
-// OBJECT TO IMPORT ALL FUNCTIONS 
-
 export const ls = {                             
-    localStorageTest: localStorageTest,
-    lockStart: lockStart,
-    saveToLocalStorage: saveToLocalStorage,
-    loadFromLocalStorage: loadFromLocalStorage,
-    getPlayer: getPlayer,
-    getGame: getGame,
-    getScoreboard: getScoreboard,
-    setQuestions: setQuestions,
-    nextQuestion: nextQuestion,
-    setPath: setPath,
-    setTier: setTier,
-    setPlayerName: setPlayerName,
-    useSkip: useSkip,
-    addPoint: addPoint,
-    removeLife: removeLife,
-    addScore: addScore
+    localStorageTest,
+    lockStart,
+    saveToLocalStorage,
+    loadFromLocalStorage,
+    getPlayer,
+    getGame,
+    getScoreboard,
+    setQuestions,
+    nextQuestion,
+    setPath,
+    setTier,
+    setPlayerName,
+    useSkip,
+    addPoint,
+    removeLife,
+    addScore
 };
-
-
-
-
-
-
-
