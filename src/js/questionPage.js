@@ -10,7 +10,7 @@ class Game {
             Intern: 30,
             Junior: 20,
             Regular: 15,
-            Senior: 5,
+            Senior: 10,
         };
         this.tierTimings = progressBarTimings[tier]; //determine how much time will be set on progress bar
         this.questions = _GAME_DATA.questions; //get questions from local storage
@@ -89,7 +89,7 @@ class Game {
         this.currentQuestion = this.questions[this.currentQuestionIndex];
         this.progressQuestionBar.value = this.currentQuestionIndex + 1;
 
-        if (this.currentQuestionIndex == this.questions.length) {
+        if (this.currentQuestionIndex == 9 || this.heart == 0) {
             ls.setCurrentScore(this.score);
             window.location.href = "./score.html";
         } else {
@@ -119,6 +119,7 @@ class Game {
 			if wrong answer is given as argument it will be highlighted
 			if no argument is given it will be highlighted the correct answer only
 		*/
+        game.deleteHeart();
         this.pgBar.killBar();
         if (answer) {
             answer.classList.add("answer__button--incorrect");
@@ -175,9 +176,6 @@ class Game {
 const game = new Game(_GAME_DATA.tier);
 
 window.onload = function () {
-    game.deleteHeart();
-    game.deleteHeart();
-    game.deleteHeart();
     document
         .getElementById("button-question-read")
         .addEventListener("click", () => {
