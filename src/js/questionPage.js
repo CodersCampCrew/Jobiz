@@ -174,10 +174,14 @@ class Game {
     skipQuestion(){
         const answer = document.querySelector('.answer')
         const skipBtn = document.querySelector('.button-skip');
+        const btnQuestionRead = document.querySelector('.button-question-read');
+        if (btnQuestionRead.hasAttribute('style')) {
+            this.pgBar.killBar(); 
+            answer.classList.add("answer__button--correct");
+        }
         skipBtn.disabled = true;
         skipBtn.classList.add("button-skip--disabled");
-        answer.classList.add("answer__button--correct");
-        this.pgBar.killBar();
+        
         setTimeout(() => {
             this.nextQuestion();
         }, 3000);
