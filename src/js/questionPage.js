@@ -21,6 +21,7 @@ class Game {
         this.progressQuestionBar.value = this.currentQuestionIndex + 1; // set progress bar value to current question index
 
         this.heart = ls.getPlayer().lives;
+        this.skipEnabled = true;
         this.score = 0; //set score to 0
         this.createQuestionPage();
     }
@@ -152,6 +153,10 @@ class Game {
                 this.wrongAnswer();
                 return;
             });
+
+        document.getElementById('skip-question').addEventListener('click', () => {
+            this.skipQuestion();
+        })
     }
 
     checkAnswer(answer) {
