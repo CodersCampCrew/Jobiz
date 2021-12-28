@@ -220,10 +220,16 @@
 }
 
 .button-skip {
-    color: black;
+    color: white;
     font-size: 2rem;
 }
 
+.button-skip--disabled {
+    color: black;
+}
+.button-skip--disabled:hover {
+    cursor: not-allowed;
+}
 .button-question-read {
     position: absolute;
     top: 50%;

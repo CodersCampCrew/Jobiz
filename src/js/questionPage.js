@@ -171,6 +171,17 @@ class Game {
             console.log("game over");
         }
     }
+    skipQuestion(){
+        const answer = document.querySelector('.answer')
+        const skipBtn = document.querySelector('.button-skip');
+        skipBtn.disabled = true;
+        skipBtn.classList.add("button-skip--disabled");
+        answer.classList.add("answer__button--correct");
+        this.pgBar.killBar();
+        setTimeout(() => {
+            this.nextQuestion();
+        }, 3000);
+    }
 }
 
 const game = new Game(_GAME_DATA.tier);
@@ -182,4 +193,7 @@ window.onload = function () {
             game.enableQuestions();
             game.startGame();
         });
+    document.querySelector('.button-skip').addEventListener("click", () => {
+        game.skipQuestion();
+    })
 };
