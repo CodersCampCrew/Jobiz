@@ -1,17 +1,4 @@
-/* 
-    HOW TO USE:
-    <script src="./src/js/quizapiWrapper.js"></script>
-    <script>
-        let quizapiWrapper = new QuizapiWrapper("frontend");
-        async function getData() {
-            let quizData = await quizapiWrapper.getData();
-            console.log(quizData);
-        }
-
-        getData();
-    </script>
-*/
-class QuizapiWrapper {
+export class QuizapiWrapper {
     constructor(tags) {
         this.apiKey = "EAco9tkerMBqitin1irWhCDipOxYHxJ5A5xe1nqQ";
         this.url = `https://quizapi.io/api/v1/questions/?apiKey=${this.apiKey}&tags=`;

@@ -1,89 +1,97 @@
-export const localStorageTest = function () {               
-    
+export const localStorageTest = function () {
     try {
-        localStorage.setItem("test","test");
+        localStorage.setItem("test", "test");
         localStorage.removeItem("test");
         return true;
-    } 
-    catch(e) {
+    } catch (e) {
         return false;
     }
-}
-
+};
 
 export const lockStart = function () {
     if (localStorageTest()) {
-      return;
-    } 
-    else {
-      document.querySelector("a").remove();
-      document.querySelector("main").insertAdjacentHTML("beforeend",'<button class="btn-fail">Start</button>');
-      document.querySelector(".btn-fail").addEventListener("mouseover", function () {
-      document.querySelector("main").insertAdjacentHTML("beforeend",'<p class="err-p">Fix your local storage</p>');});
-      document.querySelector(".btn-fail").addEventListener("mouseout", function () {document.querySelector(".err-p").remove();});
+        return;
+    } else {
+        document.querySelector("a").remove();
+        document
+            .querySelector("main")
+            .insertAdjacentHTML(
+                "beforeend",
+                '<button class="btn-fail">Start</button>'
+            );
+        document
+            .querySelector(".btn-fail")
+            .addEventListener("mouseover", function () {
+                document
+                    .querySelector("main")
+                    .insertAdjacentHTML(
+                        "beforeend",
+                        '<p class="err-p">Fix your local storage</p>'
+                    );
+            });
+        document
+            .querySelector(".btn-fail")
+            .addEventListener("mouseout", function () {
+                document.querySelector(".err-p").remove();
+            });
     }
-  };
+};
 
-export const saveToLocalStorage = function(resource, positionName) {
-
+export const saveToLocalStorage = function (resource, positionName) {
     const resourceToSave = JSON.stringify(resource);
     localStorage.setItem(positionName, resourceToSave);
+};
 
-} 
-
-export const loadFromLocalStorage = function(positionName) {
-
+export const loadFromLocalStorage = function (positionName) {
     const resource = localStorage.getItem(positionName);
     const resourceToLoad = JSON.parse(resource);
     return resourceToLoad;
-}
+};
 
 export const setGame = function () {
-const game = {
-    questions: [],
-    currentQuestion: 0,
-    path: "",
-    tier: "",
-    }
-saveToLocalStorage(game,"game");
-}
+    const game = {
+        questions: [],
+        currentQuestion: 0,
+        path: "",
+        tier: "",
+    };
+    saveToLocalStorage(game, "game");
+};
 
 export const getGame = function () {
     return loadFromLocalStorage("game");
 };
 
 export const setPlayer = function () {
-const player = {
-    name:"",
-    skipUsed: false, 
-    score: 0,        
-    lives: 3,
+    const player = {
+        name: "",
+        skipUsed: false,
+        score: 0,
+        lives: 3,
     };
-saveToLocalStorage(player,"player");
-}
+    saveToLocalStorage(player, "player");
+};
 
 export const getPlayer = function () {
     return loadFromLocalStorage("player");
 };
 
 export const setScoreboard = function () {
-    const scoreboard = [{name: '', score: 0}];
+    const scoreboard = [{ name: "", score: 0 }];
 
-saveToLocalStorage(scoreboard, "scoreboard");
-}
+    saveToLocalStorage(scoreboard, "scoreboard");
+};
 
 const getScoreboard = function () {
     return loadFromLocalStorage("scoreboard");
 };
 
-const setQuestions = function (gameQuestions){ 
+const setQuestions = function (gameQuestions) {
     const game = getGame();
-    localStorage.removeItem("game"); 
+    localStorage.removeItem("game");
     game.questions = gameQuestions;
     saveToLocalStorage(game, "game");
-    console.log(gameQuestions);
 };
-
 
 const nextQuestion = function () {
     const game = getGame();
@@ -93,10 +101,10 @@ const nextQuestion = function () {
 };
 
 const setPath = function (p) {
-   const game = getGame();
-   localStorage.removeItem("game"); 
-   game.path = p;
-   saveToLocalStorage(game, "game");
+    const game = getGame();
+    localStorage.removeItem("game");
+    game.path = p;
+    saveToLocalStorage(game, "game");
 };
 
 const setTier = function (t) {
@@ -134,7 +142,7 @@ const removeLife = function () {
     saveToLocalStorage(player, "player");
 };
 
-const addScore = function (nameOfPlayer, scoreOfPlayer) { 
+const addScore = function (nameOfPlayer, scoreOfPlayer) {
     const objToPush = {
         name: nameOfPlayer,
         score: scoreOfPlayer,
@@ -143,10 +151,19 @@ const addScore = function (nameOfPlayer, scoreOfPlayer) {
     localStorage.removeItem("scoreboard");
     scoreboard.push(objToPush);
     saveToLocalStorage(scoreboard, "scoreboard");
-
 };
 
-export const ls = {                             
+export const getPath = function () {
+    return loadFromLocalStorage("game")["path"];
+};
+const setCurrentScore = function (score) {
+    let player = getPlayer();
+    player.score = score;
+    //localStorage.removeItem("player");
+    saveToLocalStorage(player, "player");
+};
+
+export const ls = {
     localStorageTest,
     lockStart,
     saveToLocalStorage,
@@ -162,5 +179,7 @@ export const ls = {
     useSkip,
     addPoint,
     removeLife,
-    addScore
+    addScore,
+    getPath,
+    setCurrentScore,
 };
