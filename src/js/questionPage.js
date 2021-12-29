@@ -176,16 +176,20 @@ class Game {
             console.log("game over");
         }
     }
-
-    skipQuestion() {
-        if (!this.skipEnabled) {
-            return;
+    skipQuestion(){
+        const answer = document.querySelector('.answer')
+        const skipBtn = document.querySelector('.button-skip');
+        const btnQuestionRead = document.querySelector('.button-question-read');
+        if (btnQuestionRead.hasAttribute('style')) {
+            this.pgBar.killBar(); 
+            answer.classList.add("answer__button--correct");
         }
+        skipBtn.disabled = true;
+        skipBtn.classList.add("button-skip--disabled");
         
-        this.skipEnabled = false;
-        this.pgBar.killBar();
-        document.getElementById('skip-question').setAttribute('disabled',true);
-        this.nextQuestion();  
+        setTimeout(() => {
+            this.nextQuestion();
+        }, 3000);
     }
 }
 
@@ -198,4 +202,7 @@ window.onload = function () {
             game.enableQuestions();
             game.startGame();
         });
+    document.querySelector('.button-skip').addEventListener("click", () => {
+        game.skipQuestion();
+    })
 };
