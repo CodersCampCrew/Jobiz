@@ -4,7 +4,7 @@ import {
     setGame,
     setPlayer,
     setScoreboard,
-} from "../utils/localstorage.js";
+} from "../js/localstorage.js";
 
 lockStart();
 setGame();

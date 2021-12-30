@@ -1,4 +1,4 @@
-import { ProgressBar } from "../js/progressBar.js";
+import { ProgressBar } from "../js/progress-bar.js";
 import { ls } from "../js/localstorage.js";
 
 const _GAME_DATA = ls.getGame();
