@@ -159,7 +159,6 @@ export const getPath = function () {
 const setCurrentScore = function (score) {
     let player = getPlayer();
     player.score = score;
-    //localStorage.removeItem("player");
     saveToLocalStorage(player, "player");
 };
 

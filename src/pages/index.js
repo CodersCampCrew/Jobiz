@@ -3,9 +3,8 @@ import {
     lockStart,
     setGame,
     setPlayer,
-    setScoreboard
-} from "./localstorage.js";
-
+    setScoreboard,
+} from "../js/localstorage.js";
 
 lockStart();
 setGame();

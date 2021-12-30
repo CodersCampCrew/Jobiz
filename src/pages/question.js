@@ -1,5 +1,5 @@
-import { ProgressBar } from "./progressBar.js";
-import { ls } from "./localstorage.js";
+import { ProgressBar } from "../js/progress-bar.js";
+import { ls } from "../js/localstorage.js";
 
 const _GAME_DATA = ls.getGame();
 
@@ -154,9 +154,11 @@ class Game {
                 return;
             });
 
-        document.getElementById('skip-question').addEventListener('click', () => {
-            this.skipQuestion();
-        })
+        document
+            .getElementById("skip-question")
+            .addEventListener("click", () => {
+                this.skipQuestion();
+            });
     }
 
     checkAnswer(answer) {
@@ -176,17 +178,18 @@ class Game {
             console.log("game over");
         }
     }
-    skipQuestion(){
-        const answer = document.querySelector('.answer')
-        const skipBtn = document.querySelector('.button-skip');
-        const btnQuestionRead = document.querySelector('.button-question-read');
-        if (btnQuestionRead.hasAttribute('style')) {
-            this.pgBar.killBar(); 
+
+    skipQuestion() {
+        const answer = document.querySelector(".answer");
+        const skipBtn = document.querySelector(".button-skip");
+        const btnQuestionRead = document.querySelector(".button-question-read");
+        if (btnQuestionRead.hasAttribute("style")) {
+            this.pgBar.killBar();
             answer.classList.add("answer__button--correct");
         }
         skipBtn.disabled = true;
         skipBtn.classList.add("button-skip--disabled");
-        
+
         setTimeout(() => {
             this.nextQuestion();
         }, 3000);
@@ -202,7 +205,7 @@ window.onload = function () {
             game.enableQuestions();
             game.startGame();
         });
-    document.querySelector('.button-skip').addEventListener("click", () => {
+    document.querySelector(".button-skip").addEventListener("click", () => {
         game.skipQuestion();
-    })
+    });
 };
