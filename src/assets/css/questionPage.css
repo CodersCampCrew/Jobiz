@@ -16,3 +16,6 @@ progress {
 	height: 1em;
 	background-color: var(--bg-box);
 }
+
+progress::-webkit-progress-value { background: blue; }
+progress::-moz-progress-bar { background: blue; }
