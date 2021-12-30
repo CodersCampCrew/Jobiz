@@ -7,16 +7,4 @@ module.exports = {
         public: { url: "/", static: true },
         src: "/",
     },
-    plugins: [
-        /* ... */
-    ],
-    packageOptions: {
-        /* ... */
-    },
-    devOptions: {
-        /* ... */
-    },
-    buildOptions: {
-        /* ... */
-    },
 };
