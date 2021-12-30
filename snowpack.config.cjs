@@ -4,7 +4,7 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
     mount: {
-        public: "/",
+        public: { url: "/", static: true },
         src: "/",
     },
     plugins: ["@snowpack/plugin-postcss"],
