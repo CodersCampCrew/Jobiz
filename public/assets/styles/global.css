@@ -219,7 +219,7 @@
 }
 
 .button-skip {
-    color: black;
+    color: white;
     font-size: 2rem;
     background-color: #d3d3d3;
     cursor: pointer;
@@ -232,6 +232,14 @@
 
 .button-skip:disabled:hover {
     box-shadow: none;
+}
+
+.button-skip--disabled {
+    color: black;
+}
+
+.button-skip--disabled:hover {
+    cursor: not-allowed;
 }
 
 .button-question-read {
