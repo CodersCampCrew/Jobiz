@@ -1,8 +1,1 @@
-:root {
-  --primary: #45a29e;
-  --primary-active: #44dad0;
-  --font-color: #ffffff;
-  --red-color: #fa0a0a;
-  --bg-box: rgba(88, 88, 88, 0.8);
-  --bg-question-box: rgba(88, 88, 88, 0.95);
-}
+:root{--primary:#45a29e;--primary-active:#44dad0;--font-color:#fff;--red-color:#fa0a0a;--bg-box:rgba(88,88,88,.8);--bg-question-box:rgba(88,88,88,.95)}

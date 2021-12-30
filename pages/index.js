@@ -1,9 +1,9 @@
 import {
-  localStorageTest,
-  lockStart,
-  setGame,
-  setPlayer,
-  setScoreboard,
+    localStorageTest,
+    lockStart,
+    setGame,
+    setPlayer,
+    setScoreboard,
 } from "../js/localstorage.js";
 
 lockStart();

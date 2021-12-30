@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jobiz</title>
-    <script
-      src="https://kit.fontawesome.com/83ee246de5.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./assets/styles/global.css" />
-    <link rel="stylesheet" href="./assets/styles/progressBar.css" />
-    <link rel="stylesheet" href="./assets/styles/questionPage.css" />
-    <script type="module" src="./pages/question.js"></script>
-  </head>
-  <body>
-    <main class="container">
-      <section class="health">
-        <div>
-          <i class="fas fa-heart icon"></i>
-          <i class="fas fa-heart icon"></i>
-          <i class="fas fa-heart icon"></i>
-        </div>
-        <div>
-          <button id="skip-question" class="button button-skip">Skip</button>
-        </div>
-      </section>
-      <section class="question-container">
-        <div class="question">
-          <p class="question__text" id="question">Lorem ipsum</p>
-        </div>
-      </section>
-      <section class="answer-container"></section>
-      <button class="button button-question-read" id="button-question-read">
-        I have read!
-      </button>
-    </main>
-    <progress class="question-count" value="0" max="10"></progress>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jobiz</title>
+        <script
+            src="https://kit.fontawesome.com/83ee246de5.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="./assets/styles/global.css" />
+        <link rel="stylesheet" href="./assets/styles/progress-bar.css" />
+        <link rel="stylesheet" href="./assets/styles/question-page.css" />
+        <script type="module" src="./pages/question.js"></script>
+    </head>
+    <body>
+        <main class="container">
+            <section class="health">
+                <div>
+                    <i class="fas fa-heart icon"></i>
+                    <i class="fas fa-heart icon"></i>
+                    <i class="fas fa-heart icon"></i>
+                </div>
+                <div>
+                    <button id="skip-question" class="button button-skip">
+                        Skip
+                    </button>
+                </div>
+            </section>
+            <section class="question-container">
+                <div class="question">
+                    <p class="question__text" id="question">Lorem ipsum</p>
+                </div>
+            </section>
+            <section class="answer-container"></section>
+            <button
+                class="button button-question-read"
+                id="button-question-read"
+            >
+                I have read!
+            </button>
+        </main>
+        <progress class="question-count" value="0" max="10"></progress>
+    </body>
 </html>

@@ -1,0 +1,1 @@
+.answer-container{filter:blur(5px)}.button-question-read{box-shadow:0 0 10px 5px #000}.button-question-read:hover{box-shadow:0 0 5px 5px var(--primary);transition:.2s ease-in-out}progress{background-color:var(--bg-box);border:none;height:1em;outline:none;width:100%}progress::-webkit-progress-value{background:blue}progress::-moz-progress-bar{background:blue}
