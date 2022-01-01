@@ -76,14 +76,17 @@ export const getPlayer = function () {
     return loadFromLocalStorage("player");
 };
 
-export const setScoreboard = function () {
-    const scoreboard = [{ name: "", score: 0 }];
-
-    saveToLocalStorage(scoreboard, "scoreboard");
-};
-
 const getScoreboard = function () {
     return loadFromLocalStorage("scoreboard");
+};
+
+export const setScoreboard = function () {
+    if (getScoreboard()) {
+        return }
+    else {
+    const scoreboard = [];
+    saveToLocalStorage(scoreboard, "scoreboard");
+    }
 };
 
 const setQuestions = function (gameQuestions) {
@@ -171,6 +174,8 @@ export const ls = {
     getPlayer,
     getGame,
     getScoreboard,
+    setScoreboard,
+    setPlayer,
     setQuestions,
     nextQuestion,
     setPath,
