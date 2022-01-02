@@ -1,12 +1,24 @@
 import {ls} from "./localstorage.js";
 
 ls.setScoreboard();
-console.log(ls.getScoreboard());
+
 function resetSettings(){
    
     localStorage.removeItem("player");
     ls.setPlayer();
  
+}
+
+function showPlayerScore() {
+    const player = ls.getPlayer();
+    const game = ls.getGame();
+    const currentScore = player.score;
+    const tier = game.tier;
+
+    //document.querySelector('#score_line').innerText = 'Your score: ' +currentScore + '/20';
+    document.querySelector(".container").insertAdjacentHTML('afterbegin', `<h3 class="container__title">Your score: ${currentScore}/20</h3>`);
+    //<p class="container__title" id="role_line">You should apply for senior roles!</p>
+    document.querySelector("#role_line").insertAdjacentHTML('afterbegin', `<p class="container__title" id="role">You should apply for ${tier} roles!</p>`);
 }
 
 function saveToScoreboard() {
@@ -24,7 +36,7 @@ function displayScoreboard() {
     if (!element.name) {
             return
         }
-    else if (index<5) {
+    else if (index<11) {
         console.log(index);
         const HTML = `
         <tr>
@@ -40,7 +52,7 @@ function displayScoreboard() {
 
 }
 
-
+showPlayerScore();
 
 saveToScoreboard();
 
