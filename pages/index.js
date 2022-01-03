@@ -9,4 +9,3 @@ import {
 lockStart();
 setGame();
 setPlayer();
-setScoreboard();
