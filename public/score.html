@@ -10,13 +10,11 @@
     </head>
     <body>
         <main class="container">
-            <h3 class="container__title">Your score: 17/20</h3>
-            <img src="./assets/images/high_five.png" alt="High five" />
-            <p class="container__title">You should apply for senior roles!</p>
-            <div class="city">
-                <label class="city__title"> Choose your city: </label>
-                <input class="city__input" type="text" name="city" />
-            </div>
+            <h3 class="container__title" id="score_line">Your score: 17/20</h3>
+            <img src="../assets/images/high_five.png" alt="High five" />
+            <p class="container__title" id="role_line">
+                You should apply for senior roles!
+            </p>
             <div class="score">
                 <table class="score__table">
                     <caption class="score__caption">
@@ -27,18 +25,7 @@
                         <th>nick</th>
                         <th>score</th>
                     </thead>
-                    <tbody class="score__tbody">
-                        <tr>
-                            <td>1.</td>
-                            <td>Anthony</td>
-                            <td>19</td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Lorem</td>
-                            <td>12</td>
-                        </tr>
-                    </tbody>
+                    <tbody class="score__tbody"></tbody>
                 </table>
             </div>
             <a href="./index.html" class="btn" id="main_page_button">
