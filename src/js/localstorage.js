@@ -82,10 +82,10 @@ const getScoreboard = function () {
 
 export const setScoreboard = function () {
     if (getScoreboard()) {
-        return }
-    else {
-    const scoreboard = [];
-    saveToLocalStorage(scoreboard, "scoreboard");
+        return;
+    } else {
+        const scoreboard = [];
+        saveToLocalStorage(scoreboard, "scoreboard");
     }
 };
 
@@ -162,7 +162,6 @@ export const getPath = function () {
 const setCurrentScore = function (score) {
     let player = getPlayer();
     player.score = score;
-    //localStorage.removeItem("player");
     saveToLocalStorage(player, "player");
 };
 

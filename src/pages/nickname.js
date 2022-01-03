@@ -1,6 +1,7 @@
-import { ls } from "./localstorage.js";
-import { QuizapiWrapper } from "./quizapiWrapper.js";
-async function shuffle(array) {
+import { ls } from "../js/localstorage.js";
+import { QuizapiWrapper } from "../js/quizapi-wrapper.js";
+
+function shuffle(array) {
     let currentIndex = array.length,
         randomIndex;
     while (currentIndex != 0) {
@@ -29,8 +30,8 @@ button.addEventListener("click", async function () {
         document.querySelector(".lds-ring").style.display = "block";
         button.style.display = "none";
         ls.setPlayerName(document.querySelector("input").value);
-        const questions = await shuffle(await quizapiWrapper.getData());
-        ls.setQuestions(await questions);
+        const questions = shuffle(await quizapiWrapper.getData());
+        ls.setQuestions(questions);
 
         window.location.href = "./question.html";
     }
