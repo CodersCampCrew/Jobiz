@@ -14,7 +14,7 @@ function showPlayerScore() {
 
     document.querySelector(
         "#score_line"
-    ).innerText = `Your score: ${currentScore}/20`;
+    ).innerText = `Your score: ${currentScore}/10`;
     document.querySelector(
         "#role_line"
     ).innerText = `You should apply for ${tier.toLowerCase()} roles!`;
