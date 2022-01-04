@@ -203,14 +203,21 @@ class Game {
         const btnQuestionRead = document.querySelector(".button-question-read");
         if (btnQuestionRead.hasAttribute("style")) {
             this.pgBar.killBar();
-            answer.classList.add("answer__button--correct");
+             
         }
+        // if (this.correctAnswer(answer)) {
+        //     answer.classList.add("answer__button--correct");
+        // }
+        // this.checkAnswer(answer.dataset.number)
+        // this.correctAnswer(answer);
+        this.correctAnswerButton.classList.add("answer__button--correct");
         skipBtn.disabled = true;
         skipBtn.classList.add("button-skip--disabled");
-
+        this.disableHoverOnAnswer();
+    
         setTimeout(() => {
             this.nextQuestion();
-        }, 3000);
+        }, 2000);
     }
 }
 
