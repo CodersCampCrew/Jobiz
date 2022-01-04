@@ -32,14 +32,17 @@ class Game {
         document.getElementsByClassName(
             "button-question-read"
         )[0].style.visibility = "hidden";
+        document.querySelectorAll(".answer__button").forEach((element) => {
+            element.classList.add("answer__button_hover");
+        });
     }
 
     disableQuestions() {
         document.getElementsByClassName("answer-container")[0].style.filter =
             "blur(5px)";
-        let btn = (document.getElementsByClassName(
+        document.getElementsByClassName(
             "button-question-read"
-        )[0].style.visibility = "visible");
+        )[0].style.visibility = "visible";
     }
 
     recreateAnswerContainer() {
@@ -58,6 +61,14 @@ class Game {
 			change question in question container
 			create answer buttons
 		*/
+        this.currentQuestion.question = this.currentQuestion.question.replace(
+            "<",
+            "&lt;"
+        );
+        this.currentQuestion.question = this.currentQuestion.question.replace(
+            ">",
+            "&gt;"
+        );
         document.querySelector("#question").innerHTML =
             this.currentQuestion.question;
 
@@ -85,6 +96,11 @@ class Game {
         }
     }
 
+    disableHoverOnAnswer() {
+        document.querySelectorAll(".answer__button").forEach((element) => {
+            element.classList.remove("answer__button_hover");
+        });
+    }
     nextQuestion() {
         this.currentQuestionIndex++;
         this.currentQuestion = this.questions[this.currentQuestionIndex];
@@ -107,6 +123,7 @@ class Game {
 			adds 1 to score
 			proceedes to next question
 		*/
+        this.disableHoverOnAnswer();
         this.pgBar.killBar();
         answer.classList.add("answer__button--correct");
         this.score++;
@@ -120,6 +137,7 @@ class Game {
 			if wrong answer is given as argument it will be highlighted
 			if no argument is given it will be highlighted the correct answer only
 		*/
+        this.disableHoverOnAnswer();
         game.deleteHeart();
         this.pgBar.killBar();
         if (answer) {

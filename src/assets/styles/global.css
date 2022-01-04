@@ -186,7 +186,7 @@
     transition: 150ms;
 }
 
-.answer__button:hover {
+.answer__button_hover:hover {
     border-width: 5px;
     border-style: solid;
     border-color: #45a29e;
