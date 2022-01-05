@@ -1,6 +1,6 @@
 # Coders Camp 2021 (edycja 7) | Projekt zespołowy | JavaScript
 
-## Zespół projektowy oraz rola w projekcie
+## Zespół projektowy 
 ---
 Zespół pracował w ramach 7 edycji kursu CodersCamp. Aplikacja została   wykonana przez uczestników kursu pod okiem mentora.
 
@@ -8,11 +8,11 @@ Mentor: [Jędrzej Ratajczak](https://github.com/Nilphym)
 
 Uczestnicy:
 
-* [Agnieszka Liszka](https://github.com/AgnieszkaLiszka) (_project manager_)
+* [Agnieszka Liszka](https://github.com/AgnieszkaLiszka) 
 * [Filip Kostecki](https://github.com/kostnerek)
-* [Krzysztof Gumularz](https://github.com/KrisGum) (_project owner_)
+* [Krzysztof Gumularz](https://github.com/KrisGum) 
 * [Marcin Kukułka](https://github.com/MarcinKukulka)
-* [Przemysłam Gajowczyk](https://github.com/Przemyslaw-G)
+* [Przemysław Gajowczyk](https://github.com/Przemyslaw-G)
   
 ## Jobiz (The IT Quiz)  
 ---
