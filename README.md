@@ -85,4 +85,4 @@ Aplikacja będzie dostępna pod adresem: _localhost:3000/index.html_
 
 Kod produkcyjny aplikacji umieszczamy w katalogu <code>src</code>
 
-#
+---
