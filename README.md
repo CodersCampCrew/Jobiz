@@ -67,7 +67,7 @@ W trakcie developmentu wykorzystaliśmy:
 * CSS, do stylowania aplikacji (przyjęto metodologię BEM)
 * JavaScript, do wykonania logiki aplikacji oraz elementów interaktywnych interfejsu
 * Web API dla JavaScript  ( _[https://quizapi.io/](https://quizapi.io/)_ )
-* Fetch API do łączna z Web APi
+* Fetch API do łączenia z WEB API
 * LocalStorage, do przechowywania ustawień gry oraz najlepszych wyników
 * Snowpack, do budowy aplikacji i zarządzania zależnościami
 * Prettier, do automatycznego formatowania kodu
@@ -76,13 +76,11 @@ Dodatkowo w celu wykonania hostingu posłużyliśmy się github pages oraz skryp
 
 ### Uruchomienie aplikacji
 
-Przed uruchomieniem aplikacji należy:
+W celu uruchomienia aplikacji należy:
 
 1. Zainstalować zależności za pomocą komendy: <code>npm install</code>
-2. Zainstalować zależności za pomocą komendy: <code>npm start</code>
+2. Uruchomić aplikację za pomocą komendy : <code>npm start</code>
 
 Aplikacja będzie dostępna pod adresem: _localhost:3000/index.html_
-
-Kod produkcyjny aplikacji umieszczamy w katalogu <code>src</code>
 
 ---
