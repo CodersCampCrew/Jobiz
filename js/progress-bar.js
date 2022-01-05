@@ -21,9 +21,11 @@ export class ProgressBar {
         progressBarElem.innerHTML =
             "<div></div><p class='progress-bar-text' id='progress-bar-text'></p>";
 
-        let healthBar = document.querySelector(".health");
-        let main = document.querySelector(".container");
-        main.insertBefore(progressBarElem, healthBar);
+        //let healthBar = document.querySelector(".health");
+        let bar = document.querySelector(".bar");
+        bar.appendChild(progressBarElem);
+
+        //main.insertBefore(progressBarElem, healthBar);
         document.documentElement.style.setProperty(
             "--duration",
             this.secondsToCount
