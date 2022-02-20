@@ -5,13 +5,14 @@ export class QuizapiWrapper {
         this.url = `https://quizapi.io/api/v1/questions/?apiKey=${apiKey}&tags=`;
         this.data = null;
         this.tags = availableTags[tags];
+        this.proxy = 'https://jobiz-cors.herokuapp.com/';
     }
 
     async getData() {
         const allQuestions = [];
 
         for (let i = 0; i < this.tags.length; i++) {
-            const _parsed_url = this.url + (await (await this.tags)[i]);
+            const _parsed_url = this.proxy + this.url + (await (await this.tags)[i]);
             this.data = await fetch(_parsed_url)
                 .then((res) => res.json())
                 .catch((err) => console.error("Error:", err));
